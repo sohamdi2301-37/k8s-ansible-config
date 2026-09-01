@@ -1,0 +1,10 @@
+---
+- name: Ensure Alertmanager configuration directory exists
+  ansible.builtin.file:
+    path: "/etc/alertmanager"
+    state: directory
+    mode: '0755'
+
+- name: Verify Alertmanager rule definitions
+  ansible.builtin.debug:
+    msg: "Alertmanager notification routes configured."

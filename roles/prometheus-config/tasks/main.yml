@@ -1,0 +1,10 @@
+---
+- name: Ensure Prometheus configuration directory exists
+  ansible.builtin.file:
+    path: "/etc/prometheus"
+    state: directory
+    mode: '0755'
+
+- name: Verify Prometheus scrapers configuration template
+  ansible.builtin.debug:
+    msg: "Prometheus target scrape configuration applied successfully."

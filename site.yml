@@ -1,0 +1,6 @@
+---
+- name: Configure Kubernetes Cluster Nodes & Monitoring
+  hosts: localhost
+  connection: local
+  roles:
+    - node-exporter

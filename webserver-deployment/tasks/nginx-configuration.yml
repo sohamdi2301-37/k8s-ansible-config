@@ -1,0 +1,5 @@
+---
+- name: Nginx configuration file for all the webserver deployment
+  ansible.builtin.copy:
+    src: nginx.conf
+    dest: /tmp/nginx.conf
