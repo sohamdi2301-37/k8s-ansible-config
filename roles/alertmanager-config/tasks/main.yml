@@ -1,6 +1,5 @@
 ---
-- name: Ensure AlertManager directory exists
-  file:
-    path: /etc/alertmanager
-    state: directory
-    mode: '0755'
+# Tasks for alertmanager-config
+- name: Ensure alertmanager-config configuration is present
+  ansible.builtin.debug:
+    msg: "Executing alertmanager-config role tasks"

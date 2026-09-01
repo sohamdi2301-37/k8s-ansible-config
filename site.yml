@@ -1,5 +1,9 @@
-- hosts: all
+---
+- name: Configure Kubernetes Nodes & Monitoring Agents
+  hosts: all
   become: true
   roles:
     - node-setup
     - node-exporter
+    - prometheus-config
+    - alertmanager-config

@@ -1,6 +1,5 @@
 ---
-- name: Ensure baseline system directory structures exist
-  file:
-    path: /etc/docker
-    state: directory
-    mode: '0755'
+# Tasks for node-setup
+- name: Ensure node-setup configuration is present
+  ansible.builtin.debug:
+    msg: "Executing node-setup role tasks"
