@@ -1,5 +1,16 @@
 ---
-# Tasks for prometheus-config
-- name: Ensure prometheus-config configuration is present
-  ansible.builtin.debug:
-    msg: "Executing prometheus-config role tasks"
+- name: Ensure Prometheus config directory exists
+file:
+path: /etc/prometheus
+state: directory
+
+- name: Configure Prometheus scrape target for Node Exporter
+copy:
+dest: /etc/prometheus/prometheus.yml
+content: |
+  global:
+    scrape_interval: 15s
+  scrape_configs:
+    - job_name: 'node_exporter'
+      static_configs:
+        - targets: ['localhost:9100']

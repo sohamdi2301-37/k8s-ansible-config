@@ -1,5 +1,12 @@
 ---
-# Tasks for node-setup
-- name: Ensure node-setup configuration is present
-  ansible.builtin.debug:
-    msg: "Executing node-setup role tasks"
+- name: Update apt cache and install base packages
+apt:
+name: [curl, apt-transport-https, ca-certificates, containerd]
+state: present
+update_cache: yes
+
+- name: Enable containerd service
+systemd:
+name: containerd
+enabled: yes
+state: started

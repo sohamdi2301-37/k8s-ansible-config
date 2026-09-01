@@ -1,5 +1,10 @@
 ---
-# Tasks for alertmanager-config
-- name: Ensure alertmanager-config configuration is present
-  ansible.builtin.debug:
-    msg: "Executing alertmanager-config role tasks"
+- name: Ensure Alertmanager config directory exists
+file:
+path: /etc/alertmanager
+state: directory
+
+- name: Deploy Alertmanager template with Slack Webhook
+template:
+src: alertmanager.yml.j2
+dest: /etc/alertmanager/alertmanager.yml
