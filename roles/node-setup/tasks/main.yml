@@ -1,19 +1,6 @@
 ---
-- name: Update apt cache
-  ansible.builtin.apt:
-    update_cache: yes
-
-- name: Install system dependencies
-  ansible.builtin.apt:
-    name:
-      - curl
-      - apt-transport-https
-      - ca-certificates
-      - gnupg
+- name: Ensure baseline tools are present
+  apt:
+    name: [apt-transport-https, ca-certificates, curl]
     state: present
-
-- name: Ensure containerd service is active and enabled
-  ansible.builtin.systemd:
-    name: containerd
-    state: started
-    enabled: yes
+    update_cache: yes
