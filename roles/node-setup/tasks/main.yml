@@ -1,12 +1,16 @@
 ---
 - name: Update apt cache and install base packages
-apt:
-name: [curl, apt-transport-https, ca-certificates, containerd]
-state: present
-update_cache: yes
+  apt:
+    name:
+      - curl
+      - apt-transport-https
+      - ca-certificates
+      - containerd
+    state: present
+    update_cache: yes
 
 - name: Enable containerd service
-systemd:
-name: containerd
-enabled: yes
-state: started
+  systemd:
+    name: containerd
+    enabled: yes
+    state: started
