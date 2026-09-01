@@ -1,0 +1,20 @@
+- name: Update apt cache and install prerequisites
+  apt:
+    name:
+      - curl
+      - apt-transport-https
+      - ca-certificates
+      - containerd
+    state: present
+    update_cache: yes
+
+- name: Create containerd configuration directory
+  file:
+    path: /etc/containerd
+    state: directory
+
+- name: Ensure containerd service is started and enabled
+  systemd:
+    name: containerd
+    state: started
+    enabled: yes

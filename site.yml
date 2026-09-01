@@ -1,10 +1,5 @@
----
-- name: Configure Kubernetes Cluster Nodes & Monitoring Stack
-  hosts: localhost
-  connection: local
-  become: yes
+- hosts: all
+  become: true
   roles:
     - node-setup
     - node-exporter
-    - prometheus-config
-    - alertmanager-config

@@ -1,6 +1,6 @@
 ---
-- name: Ensure baseline tools are present
-  apt:
-    name: [apt-transport-https, ca-certificates, curl]
-    state: present
-    update_cache: yes
+- name: Ensure baseline system directory structures exist
+  file:
+    path: /etc/docker
+    state: directory
+    mode: '0755'
